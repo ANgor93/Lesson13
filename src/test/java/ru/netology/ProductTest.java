@@ -44,7 +44,7 @@ public class ProductTest {
         manager.add(book);
         manager.add(smartphone);
 
-        manager.searchBy("Apple");
+        manager.searchBy("Iphone X");
 
         Product[] expected = {smartphone};
         Product[] actual = manager.searchBy(smartphone.getName());
@@ -52,19 +52,7 @@ public class ProductTest {
         Assertions.assertArrayEquals(expected, actual);
 
     }
-    @Test
-    public void searchBy1Products() {
-        manager.add(book);
-        manager.add(smartphone);
 
-        manager.searchBy("Apple");
-
-        Product[] expected = {smartphone};
-        Product[] actual = manager.searchBy(smartphone.getName());
-
-        Assertions.assertArrayEquals(expected, actual);
-
-    }
 
     @Test
     public void addProducts() {
