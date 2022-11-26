@@ -21,14 +21,17 @@ public class ProductManager {
 
     public Product[] searchBy(String text) {
         Product[] result = new Product[0]; // тут будем хранить подошедшие запросу продукты
-        Product[] tmp = new Product[result.length + 1];
         for (Product product : repository.findAll()) {
             if (matches(product, text)) {
-                tmp[tmp.length - 1] = product;
                 // "добавляем в конец" массива result продукт product
+                Product[] tmp = new Product[result.length + 1];
+                for (int i = 0; i < result.length; i++) {
+                    tmp[i] = result[i];
+                }
+                tmp[result.length] = product;
+                result = tmp;
             }
         }
-        result = tmp;
         return result;
     }
 
